@@ -41,9 +41,6 @@ function setupSpawnKaliButton() {
 }
 
 function handleSpawnKali() {
-    const spawnKaliButton = document.getElementById('spawnKaliButton');
-    spawnKaliButton.textContent = 'Loading Kali Lab';
-
     // Make authenticated request to spawn Kali instance
     fetch('/api/v1/spawnlab', {
         method: 'GET',
@@ -60,26 +57,13 @@ function handleSpawnKali() {
         return response.json();
     })
     .then(data => {
-        // After the progress, open the link in a new tab
-        window.open(data.link, '_blank');
+        // Show loading message with progress bar
+        showAlertWithProgressBar('Loading your Kali instance...', 120, () => {
+            // After the progress, open the link in a new tab
+            window.open(data.link, '_blank');
+        });
     })
     .catch(error => console.error('Error spawning Kali instance:', error));
-}
-
-
-function updateSpawnKaliButtonState(link) {
-    const spawnKaliButton = document.getElementById('spawnKaliButton');
-    
-    // Change button text and color for loading state
-    spawnKaliButton.textContent = 'Loading Kali Lab';
-    spawnKaliButton.classList.remove('btn-primary');
-    spawnKaliButton.classList.add('btn-magenta'); // Add magenta color class
-
-    // Disable button during loading state
-    spawnKaliButton.disabled = true;
-
-    // Store the link for later use
-    spawnKaliButton.dataset.kaliLink = link;
 }
 
 function setupTerminateKaliButton() {
@@ -107,27 +91,33 @@ function handleTerminateKali() {
     .then(data => {
         // Show alert with termination message
         showAlert(`Instance terminated successfully. Instance ID: ${data.terminatedInstanceId}`);
-        // Reset spawn Kali button to original state
-        resetSpawnKaliButton();
     })
     .catch(error => console.error('Error terminating Kali instance:', error));
 }
 
-function resetSpawnKaliButton() {
-    const spawnKaliButton = document.getElementById('spawnKaliButton');
-    
-    // Reset button text and color
-    spawnKaliButton.textContent = 'Spawn Kali Lab';
-    spawnKaliButton.classList.remove('btn-magenta'); // Remove magenta color class
-    spawnKaliButton.classList.add('btn-primary'); // Restore original color class
+function showAlertWithProgressBar(message, durationInSeconds, onComplete) {
+    // Create an alert element with progress bar
+    const alertElement = document.createElement('div');
+    alertElement.className = 'alert';
+    alertElement.textContent = message;
 
-    // Enable the button
-    spawnKaliButton.disabled = false;
+    // Create a progress bar element
+    const progressBarElement = document.createElement('div');
+    progressBarElement.className = 'progress-bar';
+    progressBarElement.role = 'progressbar';
+    progressBarElement.style.width = '0%';
 
-    // Clear stored link
-    spawnKaliButton.dataset.kaliLink = '';
+    // Append the progress bar to the alert
+    alertElement.appendChild(progressBarElement);
+
+    // Append the alert to the alert container
+    const alertContainer = document.getElementById('alert-container');
+    alertContainer.innerHTML = ''; // Clear previous alerts
+    alertContainer.appendChild(alertElement);
+
+    // Start simulating the progress bar
+    simulateProgressBar(progressBarElement, durationInSeconds, onComplete);
 }
-
 
 function hideAlert() {
     // Clear the alert container
@@ -135,18 +125,8 @@ function hideAlert() {
     alertContainer.innerHTML = '';
 }
 
-function simulateProgressBarInButton(buttonElement, durationInSeconds, onComplete) {
-    const progressBarContainer = document.createElement('div');
-    progressBarContainer.className = 'progress-bar-container';
-
-    const progressBarElement = document.createElement('div');
-    progressBarElement.className = 'progress-bar-magenta';
-    progressBarContainer.appendChild(progressBarElement);
-
-    buttonElement.textContent = ''; // Clear button text
-    buttonElement.classList.remove('btn-primary'); // Remove blue color class
-    buttonElement.classList.add('btn-magenta'); // Add magenta color class
-    buttonElement.appendChild(progressBarContainer);
+function simulateProgressBar(progressBarElement, durationInSeconds, onComplete) {
+    progressBarElement.style.width = '0%';
 
     let progress = 0;
 
@@ -156,22 +136,13 @@ function simulateProgressBarInButton(buttonElement, durationInSeconds, onComplet
 
         if (progress >= 100) {
             clearInterval(intervalId);
-            progressBarElement.style.width = '100%';
-
-            // Remove the progress bar after completion
-            buttonElement.removeChild(progressBarContainer);
-
-            // Disable the button during loading state
-            buttonElement.disabled = true;
-
+            progressBarElement.style.width = '100%'; // Corrected line
             // Hide loading message
+            hideAlert();
             onComplete();
         }
     }, 1000);
 }
-
-
-
 
 function showAlert(message) {
     // Create an alert element
