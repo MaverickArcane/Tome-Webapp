@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function fetchLabContent() {
     // Make authenticated request with the token cookie
-    fetch('http://localhost:3000/api/v1/lab/networkingLab', {
+    fetch('/api/v1/lab/networkingLab', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -45,7 +45,7 @@ function handleSpawnKali() {
     spawnKaliButton.textContent = 'Loading Kali Lab';
 
     // Make authenticated request to spawn Kali instance
-    fetch('http://localhost:3000/api/v1/spawnlab', {
+    fetch('/api/v1/spawnlab', {
         method: 'GET',
         credentials: 'include',
         headers: {
@@ -90,7 +90,7 @@ function setupTerminateKaliButton() {
 
 function handleTerminateKali() {
     // Make authenticated request to terminate Kali instance
-    fetch('http://localhost:3000/api/v1/termlab', {
+    fetch('/api/v1/termlab', {
         method: 'GET',
         credentials: 'include',
         headers: {

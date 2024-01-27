@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const token = getCookie('token');
   
       // Perform the logout API call when the logout button is clicked
-      fetch('http://localhost:3000/api/v1/signout', {
+      fetch('/api/v1/logout', {
         method: 'GET',
         credentials: 'include',
         headers: {

@@ -14,7 +14,6 @@
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
-    "jwt": "",
     "websocket": "^1.0.34"
   }
 }

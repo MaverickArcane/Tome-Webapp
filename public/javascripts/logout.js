@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to call the signout API
     async function signout() {
       try {
-        const response = await fetch('http://localhost:3000/api/v1/logout', {
+        const response = await fetch('/api/v1/logout', {
           method: 'GET',
           credentials: 'include',
           headers: {
