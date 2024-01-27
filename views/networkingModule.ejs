@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tome Learning Platform by Arcane Security</title>
+  <!-- Favicon Image -->
+  <link rel="icon" type="image/x-icon" href="/img/Arcane_Logos.png" />
+  <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/networkingModule.css">
+  <title>Networking Learning Lab</title>
+</head>
+<body class="bg-light">
+   <!-- Header -->
+    <div id="header">
+        <!-- Left side of the header -->
+        <div class="header-section header-left">
+          <a id="back-to-dashboard" href="/dashboard">
+            <button class="btn btn-secondary">
+              <span>&#8592;</span> Dashboard
+            </button>
+          </a>
+          <!-- Add some space between the buttons -->
+          <span class="separator"></span>
+          <!-- Logout Button -->
+          <a id="logout-link" href="/logout">
+            <button class="btn btn-primary">Logout</button>
+          </a>
+        </div>
+    
+        <!-- Center of the header -->
+        <div class="header-section header-center">
+          <h1>Networking Lab</h1>
+        </div>
+    
+        <!-- Right side of the header -->
+        <div class="header-section header-buttons">
+          <!-- Spawn Kali Instance Button -->
+          <button id="spawnKaliButton" class="btn btn-primary">Spawn Kali Lab</button>
+          <!-- Terminate Kali Instance Button -->
+          <button id="terminateKaliButton"><i class="fa-solid fa-trash-can" style="color: #ffffff;"></i></button>
+        </div>
+      </div>
+
+     <!-- Main Container -->
+     <div id="main-container">
+      <!-- Left Container for Lab Content -->
+      <div id="lab-content" class="border-right">
+        <!-- Lab Content will be rendered here dynamically -->
+      </div>
+
+    <!-- Alert Container -->
+    <div id="alert-container" class="alert-container"></div>
+
+    
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj+KsslFkCOt3TvJrX2AV/Gc3wOqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+    <!-- Your networkingModule.js initialization script -->
+    <script src="/javascripts/networkingModule.js" defer></script>
+</body>
+</html>

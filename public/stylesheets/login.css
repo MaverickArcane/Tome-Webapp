@@ -1,0 +1,16 @@
+/* public/stylesheets/login.css */
+  .vh-100 {
+    background-color:#d9e6f2;
+  }
+ 
+  .card {
+    border-radius: 1rem;
+  }
+  
+  .img-fluid {
+    border-radius: 1rem 0 0 1rem;
+  }
+  
+  .fw-normal{
+    letter-spacing: 1px;
+  }
