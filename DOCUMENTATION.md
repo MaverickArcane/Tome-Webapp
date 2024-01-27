@@ -20,7 +20,7 @@
 
 ## Sign In
 
-**Endpoint:** `POST /api/v1/signin`
+**Endpoint:** `POST /api/v1/login`
 
 **Description:** Authenticate a user and receive an access token.
 
@@ -52,7 +52,7 @@
 ```
 ## Sign Out
 
-**Endpoint:** `GET /api/v1/signout`
+**Endpoint:** `GET /api/v1/logout`
 
 **Description:** Sign out the authenticated user.
 
