@@ -37,41 +37,33 @@ function fetchLabContent() {
 function setupSpawnKaliButton() {
     // Add event listener to the spawn Kali instance button
     const spawnKaliButton = document.getElementById('spawnKaliButton');
-
-    // Add event listener to the button
     spawnKaliButton.addEventListener('click', handleSpawnKali);
 }
 
-
 function handleSpawnKali() {
-    // Show loading message with progress bar
-    showAlertWithProgressBar('Loading Kali instance...', 120, () => {
     // Make authenticated request to spawn Kali instance
-        fetch('/api/v1/spawnlab', {
-            method: 'GET',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-                'Cookie': `token=${getCookie('token')}`
-            },
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to spawn Kali instance: ${response.statusText}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-        
-                // After the progress, open the link in a new tab
-                window.open(data.link, '_blank');
-
-                // Hides progress bar
-                hideAlertProgress();
-                document.getElementById('newButton').classList.remove('hidden');
-            });
-        })
-        .catch(error => console.error('Error spawning Kali instance:', error));
+    fetch('/api/v1/spawnlab', {
+        method: 'GET',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json',
+            'Cookie': `token=${getCookie('token')}`
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Failed to spawn Kali instance: ${response.statusText}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Show loading message with progress bar
+        showAlertWithProgressBar('Loading your Kali instance...', 120, () => {
+            // After the progress, open the link in a new tab
+            window.open(data.link, '_blank');
+        });
+    })
+    .catch(error => console.error('Error spawning Kali instance:', error));
 }
 
 function setupTerminateKaliButton() {

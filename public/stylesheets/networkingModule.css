@@ -6,7 +6,7 @@
 body, html {
   height: 100%;
   margin: 0;
-  overflow:visible
+  overflow: hidden;
 }
 
 #header {
@@ -115,10 +115,6 @@ body, html {
   border-radius: 5px;
   padding: 10px;
   text-align: center;
-}
-
-.hidden {
-  display: none;
 }
 
 .progress-bar {
