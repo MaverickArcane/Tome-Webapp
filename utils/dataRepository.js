@@ -3,7 +3,36 @@
 const users = [
   { username: 'user1', password: 'password1', instanceId: null },
   { username: 'user2', password: 'password2', instanceId: null },
+  { username: 'user3', password: 'password3', instanceId: null },
+  { username: 'user4', password: 'password4', instanceId: null },
+  { username: 'user5', password: 'password5', instanceId: null },
+  { username: 'user6', password: 'password6', instanceId: null },
+  { username: 'user7', password: 'password7', instanceId: null },
+  { username: 'user8', password: 'password8', instanceId: null },
+  { username: 'user9', password: 'password9', instanceId: null },
+  { username: 'user10', password: 'password10', instanceId: null },
+  { username: 'user11', password: 'password11', instanceId: null },
+  { username: 'user12', password: 'password12', instanceId: null },
+  { username: 'user13', password: 'password13', instanceId: null },
+  { username: 'user14', password: 'password14', instanceId: null },
+  { username: 'user15', password: 'password15', instanceId: null },
+  { username: 'user16', password: 'password16', instanceId: null },
+  { username: 'user17', password: 'password17', instanceId: null },
+  { username: 'user18', password: 'password18', instanceId: null },
+  { username: 'user19', password: 'password19', instanceId: null },
+  { username: 'user20', password: 'password20', instanceId: null },
+  { username: 'user21', password: 'password21', instanceId: null },
+  { username: 'user22', password: 'password22', instanceId: null },
+  { username: 'user23', password: 'password23', instanceId: null },
+  { username: 'user24', password: 'password24', instanceId: null },
+  { username: 'user25', password: 'password25', instanceId: null },
+  { username: 'user26', password: 'password26', instanceId: null },
+  { username: 'user27', password: 'password27', instanceId: null },
+  { username: 'user28', password: 'password28', instanceId: null },
+  { username: 'user29', password: 'password29', instanceId: null },
+  { username: 'user30', password: 'password30', instanceId: null }
 ];
+
 
 
 const labs = {
